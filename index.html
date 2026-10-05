@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactHub-Smart Contact Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body border border-0">
+      <div class="container">
+        <div class="navbar-brand d-flex align-items-center gap-3">
+          <i
+            class="fa-solid fa-address-book shadow text-white bg-violet py-3 px-4 border border-0 rounded-4 d-flex justify-content-center"
+          ></i>
+          <div class="header lh-1">
+            <h1 class="fw-bold fs-4 p-0 m-0">
+              Contact<span class="text-violet">Hub</span>
+            </h1>
+            <span class="fs-sm fw-bold text-secondary m-0 p-0 d-none nav-hidden"
+              >Smart Contact Manager</span
+            >
+          </div>
+        </div>
+
+        <div id="navbarSupportedContent">
+          <ul
+            class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-baseline flex-row gap-3"
+          >
+            <li class="nav-item">
+              <button
+                onclick="addContactClick()"
+                class="btn py-2 px-3 fs-md fw-bold border border-0 rounded-3 bg-violet-gradient text-white"
+                type="button"
+              >
+                + Add <span class="d-none nav-hidden">Contact</span>
+              </button>
+            </li>
+            <li class="nav-item d-none nav-hidden">
+              <a class="nav-link" href="#"><i class="fa-solid fa-bell"></i></a>
+            </li>
+            <li class="nav-item d-none nav-hidden">
+              <a class="nav-link" href="#"><i class="fa-solid fa-gear"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img
+                  src="images/avatar.jpg"
+                  class="bg-main border border-0 rounded-3"
+                  alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-6 col-lg-4">
+            <div
+              class="d-flex justify-content-start gap-3 bg-body p-3 border border-0 rounded-4 align-items-start"
+            >
+              <i
+                class="fa-solid fa-users bg-primary text-white px-4 py-3 border border-0 rounded-4 d-flex justify-content-center align-items-center"
+              ></i>
+              <div class="contact-cat">
+                <span class="text-secondary text-capitalize">Total</span>
+                <p class="fw-bold" id="total-count">0</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-4">
+            <div
+              class="d-flex justify-content-start gap-3 bg-body p-3 border border-0 rounded-4 align-items-start"
+            >
+              <i
+                class="fa-solid fa-star bg-warning text-white px-4 py-3 border border-0 rounded-4 d-flex justify-content-center align-items-center"
+              ></i>
+              <div class="contact-cat">
+                <span class="text-secondary text-capitalize">Favorites</span>
+                <p class="fw-bold" id="fav-count">0</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-4">
+            <div
+              class="d-flex justify-content-start gap-3 bg-body p-3 border border-0 rounded-4 align-items-start"
+            >
+              <i
+                class="fa-solid fa-heart-pulse bg-danger text-white px-4 py-3 border border-0 rounded-4 d-flex justify-content-center align-items-center"
+              ></i>
+              <div class="contact-cat">
+                <span class="text-secondary text-capitalize">Emergency</span>
+                <p class="fw-bold" id="emer-count">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 pt-4">
+          <div class="col-xl-9">
+            <div class="d-flex flex-column">
+              <h2>All Contacts</h2>
+              <span
+                >Manage and organize your
+                <span id="tot-count">0</span>
+                contacts</span
+              >
+              <div
+                class="input-group flex-nowrap mb-3 p-2 bg-white border border-1 rounded-2 mt-3"
+              >
+                <span
+                  class="input-group-text border-0 bg-white text-secondary p-1"
+                  id="addon-wrapping"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+                <input
+                  id="search-input"
+                  type="text"
+                  oninput="searchFunction()"
+                  class="form-control border-0 p-1"
+                  placeholder="Search by name, phone, or email..."
+                  aria-label="search"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+              <div id="display-contacts"></div>
+            </div>
+          </div>
+          <div class="col-xl-3">
+            <div
+              class="mb-3 favorites-section rounded rounded-4 shadow overflow-hidden"
+            >
+              <div
+                class="favorite-header d-flex gap-3 align-items-start bg-light-warning p-3"
+              >
+                <i
+                  class="fa-solid fa-star text-white fs-sm d-flex justify-content-center border border-0 rounded-2 py-3 px-4 bg-warning"
+                ></i>
+
+                <div class="fav-text">
+                  <h2 class="fw-bold fs-6 mb-0">Favorites</h2>
+                  <p class="fs-sm text-secondary">Quick access</p>
+                </div>
+              </div>
+
+              <div class="favorite-body bg-white p-3">
+                <div class="row g-2" id="fav_contacts"></div>
+              </div>
+            </div>
+            <div
+              class="emergency-section rounded rounded-4 shadow overflow-hidden"
+            >
+              <div
+                class="emergency-header d-flex gap-3 align-items-start bg-light-danger p-3"
+              >
+                <i
+                  class="fa-solid fa-heart-pulse bg-danger text-white fs-sm d-flex justify-content-center border border-0 rounded-2 py-3 px-4"
+                ></i>
+
+                <div class="emergency-text">
+                  <h2 class="fw-bold fs-6 mb-0">Emergency</h2>
+                  <p class="fs-sm text-secondary">Urgent contacts</p>
+                </div>
+              </div>
+
+              <div class="emergency-body bg-white p-3">
+                <div class="row g-2" id="emerg-contacts"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

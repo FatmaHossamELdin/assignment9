@@ -1,0 +1,73 @@
+body {
+  background-color: #f5f8fc;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* font-size: 14px;
+  font-weight: 600;
+  line-height: 20px; */
+}
+.bg-violet {
+  background-color: oklch(54.1% 0.281 293.009);
+}
+.bg-violet-gradient {
+  background: linear-gradient(
+    to right,
+    oklch(54.1% 0.281 293.009),
+    oklch(51.1% 0.262 276.966)
+  );
+}
+.text-violet {
+  color: oklch(54.1% 0.281 293.009);
+}
+.bg-light-blue {
+  background-color: #dbeafe;
+}
+.bg-light-violet {
+  background-color: #ede9fe;
+}
+.bg-light-green {
+  background-color: #d0fae5;
+}
+.bg-light-warning {
+  background-color: #fffaeb;
+}.bg-light-danger {
+  background-color: #FFF2F2;
+}
+.fs-sm {
+  font-size: 12px;
+}
+.fs-md {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+.nav-link img {
+  width: 40px;
+  border: 2px solid var(--main-color) !important;
+}
+.nav-link:hover .nav-item i {
+  color: var(--main-color) !important;
+}
+section {
+  padding-block: 40px;
+}
+
+.form-select {
+  background-image: none;
+}
+textarea {
+  resize: none;
+}
+.emergency-tag{
+  font-size: 10px;
+bottom: -5px;
+right:-5px;
+}
+.favorite-tag{
+  font-size: 10px;
+
+  top:-5px;
+  right: -5px;
+}
